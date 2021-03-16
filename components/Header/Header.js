@@ -1,4 +1,4 @@
-import { Link } from "next";
+import Link from "next/Link";
 
 export default function Header({ content }) {
   return (
