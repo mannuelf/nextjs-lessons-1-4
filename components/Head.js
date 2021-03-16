@@ -2,9 +2,9 @@ import NextHead from "next/head";
 
 export default function Head({
   title = "default value",
-  description,
-  author,
-  keyWords,
+  description = "",
+  author = "",
+  keyWords = "",
 }) {
   return (
     <NextHead>
