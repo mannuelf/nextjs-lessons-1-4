@@ -3,7 +3,7 @@ import Link from "next/Link";
 export default function Header({ content }) {
   return (
     <>
-      <header className="app-header">
+      <header className="app-headers">
         <nav>
           <span className="logo">{content ? content : "Hello"}</span> |{" "}
           <Link href="/">Home</Link> | <Link href="/about">About</Link> |{" "}
