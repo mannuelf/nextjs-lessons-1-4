@@ -3,16 +3,18 @@ import styles from "../styles/About.module.css";
 import axios from "axios";
 import { BASE_URL } from "../constants/api";
 
-export default function LatestNews({ news }) {
+export default function Games({ games }) {
   return (
     <Layout>
       <div className={styles.container}>
-        {news
-          ? news.map((newsItem, index) => {
+        {games
+          ? games.map((game, index) => {
               return (
                 <div key={index} data-id={index}>
-                  <h1>{newsItem.title}</h1>
-                  <p>{newsItem.description}</p>
+                  <a key={game.slug} href={`games/${game.slug}`}>
+                    <h1>{game.name}</h1>
+                    <img src={game.screenshots[0].image} />
+                  </a>
                 </div>
               );
             })
@@ -23,18 +25,18 @@ export default function LatestNews({ news }) {
 }
 
 export async function getStaticProps() {
-  let news = [];
+  let games = [];
 
   try {
     const res = await axios.get(BASE_URL);
-    news = res.data.articles;
+    games = res.data.data;
   } catch (e) {
     console.log(e);
   }
 
   return {
     props: {
-      news: news,
+      games: games,
     },
   };
 }

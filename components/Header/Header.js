@@ -7,7 +7,7 @@ export default function Header({ content }) {
         <nav>
           <span className="logo">{content ? content : "Hello"}</span> |{" "}
           <Link href="/">Home</Link> | <Link href="/about">About</Link> |{" "}
-          <Link href="/latest-news">Latest News</Link>
+          <Link href="/games">Games</Link>
         </nav>
       </header>
     </>
