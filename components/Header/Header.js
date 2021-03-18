@@ -5,8 +5,11 @@ export default function Header({ content }) {
     <>
       <header className="app-headers">
         <nav>
-          <span className="logo">{content ? content : "Hello"}</span> |{" "}
-          <Link href="/">Home</Link> | <Link href="/about">About</Link> |{" "}
+          <div className="logo">
+            <span>###</span>
+            {content ? content : "Hello"}
+          </div>{" "}
+          | <Link href="/">Home</Link> | <Link href="/about">About</Link> |{" "}
           <Link href="/games">Games</Link>
         </nav>
       </header>

@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout/Layout";
-import { BASE_URL } from "../../constants/api";
+import { BASE_URL, API_KEY } from "../../constants/api";
 import axios from "axios";
 
 export default function Games({ game }) {
@@ -7,15 +7,15 @@ export default function Games({ game }) {
     <Layout>
       <h1>{game.name}</h1>
       <h2>Rating: {game.rating}</h2>
-      <img src={game.screenshots[0].image} />
+      <img src={game.background_image} />
     </Layout>
   );
 }
 
 export async function getStaticPaths() {
   try {
-    const res = await axios.get(BASE_URL);
-    const games = res.data.data;
+    const res = await axios.get(`${BASE_URL}games?key=${API_KEY}`);
+    const games = res.data.results;
 
     const paths = games.map((game) => ({
       params: { slug: game.slug },
@@ -28,7 +28,6 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  console.log("🚀", params);
   const url = `${BASE_URL}/${params.slug}`;
   let game = null;
   try {

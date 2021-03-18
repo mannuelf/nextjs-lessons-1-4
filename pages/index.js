@@ -1,8 +1,7 @@
 import Layout from "../components/Layout/Layout";
-import styles from "../styles/Home.module.css";
+import styles from "../styles/Home.module.scss";
 
 export default function Home({ news }) {
-  console.log(news);
   return (
     <Layout>
       <div className={styles.container}>

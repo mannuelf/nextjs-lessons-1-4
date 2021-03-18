@@ -1,2 +1,2 @@
-export const BASE_URL =
-  "https://t9jt3myad3.execute-api.eu-west-2.amazonaws.com/api/old-games";
+export const BASE_URL = `${process.env.RAWG_API}`;
+export const API_KEY = `${process.env.RAWG_API_KEY}`;
