@@ -8,7 +8,6 @@ async function setup() {
       driver: sqlite3.Database,
     });
     await db.migrate({
-      migrationsPath: "./migrations/*",
       force: "last",
     });
   } catch (error) {
