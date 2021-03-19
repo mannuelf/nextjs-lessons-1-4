@@ -11,7 +11,7 @@ export default async function orders(req, res) {
       });
       allOrders = await db.all("SELECT * FROM orders");
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
     res.json(allOrders);
   }

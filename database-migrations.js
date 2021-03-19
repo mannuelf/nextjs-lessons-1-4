@@ -9,7 +9,7 @@ async function setup() {
     });
     await db.migrate();
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 }
 

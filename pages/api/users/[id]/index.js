@@ -1,7 +1,6 @@
 const openDB = require("../../db");
 // users/{id}/orders/{id}
 export default async function getUserById(req, res) {
-  console.log(req.query);
   try {
     let user = {};
 
@@ -14,6 +13,6 @@ export default async function getUserById(req, res) {
       res.json(user);
     }
   } catch (error) {
-    console.log(error);
+    throw new Error(error);
   }
 }

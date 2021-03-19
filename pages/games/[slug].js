@@ -19,15 +19,13 @@ export async function getStaticPaths() {
     const res = await axios.get(`${BASE_URL}/games?key=${API_KEY}`);
 
     const games = res.data.results;
-    console.log(games);
     const paths = games.map((game) => ({
       params: { slug: game.slug },
     }));
-    console.log(paths);
 
     return { paths: paths, fallback: false };
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    throw new Error(error);
   }
 }
 
@@ -37,8 +35,8 @@ export async function getStaticProps({ params }) {
   try {
     const res = await axios.get(url);
     game = res.data;
-  } catch (err) {
-    console.log(err);
+  } catch (error) {
+    throw new Error(error);
   }
 
   return {

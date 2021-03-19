@@ -12,7 +12,7 @@ export default async function getOrdersByUserId(req, res) {
       db.close();
       res.json(usersOrders);
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
   }
 }

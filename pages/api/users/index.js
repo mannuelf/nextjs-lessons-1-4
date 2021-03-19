@@ -8,7 +8,7 @@ export default async function users(req, res) {
       allUsers = await db.all("SELECT * FROM users");
       db.close();
     } catch (error) {
-      console.log(error);
+      throw new Error(error);
     }
     res.json(allUsers);
   }
