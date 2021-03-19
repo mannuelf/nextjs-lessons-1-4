@@ -22,8 +22,8 @@ export async function getStaticProps() {
   try {
     const res = await axios.get(url);
     users = res.data;
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    throw new Error(error);
   }
 
   return {

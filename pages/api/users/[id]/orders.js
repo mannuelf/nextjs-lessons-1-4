@@ -1,7 +1,6 @@
 const openDB = require("../../db");
 
 export default async function getOrdersByUserId(req, res) {
-  console.log(req.query);
   if (req.method === "GET") {
     try {
       const db = await openDB();

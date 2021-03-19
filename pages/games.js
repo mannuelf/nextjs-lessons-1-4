@@ -36,8 +36,8 @@ export async function getStaticProps() {
   try {
     const res = await axios.get(url);
     games = res.data.results;
-  } catch (e) {
-    console.log(e);
+  } catch (error) {
+    throw new Error(error);
   }
 
   return {
