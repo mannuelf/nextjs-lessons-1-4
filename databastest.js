@@ -8,7 +8,7 @@ async function setup() {
       driver: sqlite3.Database,
     });
     await db.migrate({
-      force: "last",
+      force: true,
     });
   } catch (error) {
     console.log(error);
