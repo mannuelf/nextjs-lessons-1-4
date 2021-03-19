@@ -2,24 +2,28 @@ import Layout from "../../components/Layout/Layout";
 import { BASE_URL, API_KEY } from "../../constants/api";
 import axios from "axios";
 
+function renderMarkup(theMarkup) {
+  return { __html: theMarkup };
+}
 export default function Games({ game }) {
   return (
     <Layout>
       <h1>{game.name}</h1>
-      <h2>Rating: {game.rating}</h2>
-      <img src={game.background_image} />
+      <div dangerouslySetInnerHTML={renderMarkup(game.description)} />
     </Layout>
   );
 }
 
 export async function getStaticPaths() {
   try {
-    const res = await axios.get(`${BASE_URL}games?key=${API_KEY}`);
-    const games = res.data.results;
+    const res = await axios.get(`${BASE_URL}/games?key=${API_KEY}`);
 
+    const games = res.data.results;
+    console.log(games);
     const paths = games.map((game) => ({
       params: { slug: game.slug },
     }));
+    console.log(paths);
 
     return { paths: paths, fallback: false };
   } catch (err) {
@@ -28,7 +32,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const url = `${BASE_URL}/${params.slug}`;
+  const url = `${BASE_URL}/games/${params.slug}`;
   let game = null;
   try {
     const res = await axios.get(url);
