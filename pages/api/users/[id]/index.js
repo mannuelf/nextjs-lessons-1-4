@@ -1,19 +1,15 @@
-const sqlite = require("sqlite");
-const sqlite3 = require("sqlite3");
-
+const openDB = require("../../db");
+// users/{id}/orders/{id}
 export default async function getUserById(req, res) {
+  console.log(req.query);
   try {
     let user = {};
 
     if (req.method === "GET") {
-      const db = await sqlite.open({
-        filename: "./games.sqlite",
-        driver: sqlite3.Database,
-      });
-
+      const db = await openDB();
       // database query
       user = await db.get("SELECT * FROM users WHERE id = ?", [req.query.id]);
-
+      db.close();
       // return the user
       res.json(user);
     }
