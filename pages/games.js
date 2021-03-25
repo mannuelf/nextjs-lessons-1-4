@@ -1,7 +1,7 @@
 import Layout from "../components/Layout/Layout";
 import styles from "../styles/About.module.scss";
 import axios from "axios";
-import { BASE_URL, API_KEY } from "../constants/api";
+import { REACT_APP_BASE_URL, API_KEY } from "../constants/api";
 import Image from "next/image";
 
 export default function Games({ games }) {
@@ -30,7 +30,7 @@ export default function Games({ games }) {
 }
 
 export async function getStaticProps() {
-  const url = `${BASE_URL}games?key=${API_KEY}`;
+  const url = `${REACT_APP_BASE_URL}games?key=${API_KEY}`;
   let games = [];
 
   try {

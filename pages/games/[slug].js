@@ -1,7 +1,7 @@
 import Layout from "../../components/Layout/Layout";
-import { BASE_URL, API_KEY } from "../../constants/api";
+import { REACT_APP_BASE_URL, API_KEY } from "../../constants/api";
 import axios from "axios";
-const url = `${BASE_URL}/games?key=${API_KEY}`;
+const url = `${REACT_APP_BASE_URL}/games?key=${API_KEY}`;
 console.log(url);
 
 function renderMarkup(theMarkup) {
@@ -18,7 +18,7 @@ export default function Games({ game }) {
 
 export async function getStaticPaths() {
   try {
-    const res = await axios.get(`${BASE_URL}/games?key=${API_KEY}`);
+    const res = await axios.get(`${REACT_APP_BASE_URL}/games?key=${API_KEY}`);
 
     const games = res.data.results;
     const paths = games.map((game) => ({
@@ -32,7 +32,7 @@ export async function getStaticPaths() {
 }
 
 export async function getStaticProps({ params }) {
-  const url = `${BASE_URL}/games/${params.slug}`;
+  const url = `${REACT_APP_BASE_URL}/games/${params.slug}`;
   let game = null;
   try {
     const res = await axios.get(url);
