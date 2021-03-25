@@ -16,7 +16,7 @@ export default function users({ users }) {
 }
 
 export async function getStaticProps() {
-  const url = `http://localhost:3000/api/users`;
+  const url = `/api/users`;
   let users = [];
 
   try {

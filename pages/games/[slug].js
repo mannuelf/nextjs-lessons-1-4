@@ -1,6 +1,8 @@
 import Layout from "../../components/Layout/Layout";
 import { BASE_URL, API_KEY } from "../../constants/api";
 import axios from "axios";
+const url = `${BASE_URL}/games?key=${API_KEY}`;
+console.log(url);
 
 function renderMarkup(theMarkup) {
   return { __html: theMarkup };
