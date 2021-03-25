@@ -1,5 +1,5 @@
 import Layout from "../../components/Layout/Layout";
-import { REACT_APP_BASE_URL, API_KEY } from "../../constants/api";
+import { REACT_APP_BASE_URL, REACT_APP_API_KEY } from "../../constants/api";
 import axios from "axios";
 const url = `${REACT_APP_BASE_URL}/games?key=${API_KEY}`;
 console.log(url);

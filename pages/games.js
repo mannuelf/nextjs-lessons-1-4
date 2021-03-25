@@ -1,7 +1,7 @@
 import Layout from "../components/Layout/Layout";
 import styles from "../styles/About.module.scss";
 import axios from "axios";
-import { REACT_APP_BASE_URL, API_KEY } from "../constants/api";
+import { REACT_APP_BASE_URL, REACT_APP_API_KEY } from "../constants/api";
 import Image from "next/image";
 
 export default function Games({ games }) {
